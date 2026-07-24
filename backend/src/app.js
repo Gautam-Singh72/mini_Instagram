@@ -2,8 +2,10 @@ const express = require("express");
 const multer = require("multer");
 const uploadFile = require('./services/storage.service');
 const postModel = require("./models/post.model");
+const cors = require("cors");
 
 const app=express();
+app.use(cors()); //middleware to allow cross origin requests from frontend to backend
 app.use(express.json()); //middleware to read the data from the request body and convert it into json format
 
 const upload=multer({ storage: multer.memoryStorage() });
